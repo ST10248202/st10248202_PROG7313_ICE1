@@ -1,5 +1,6 @@
 package com.fake.prog7313_addapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -26,13 +27,42 @@ class MainActivity : AppCompatActivity() {
         val buttonAdd = findViewById<Button>(R.id.buttonAdd)
         val textViewOutput = findViewById<TextView>(R.id.textViewOutput)
         val buttonClear = findViewById<Button>(R.id.buttonClear)
+        val buttonSubtract = findViewById<Button>(R.id.buttonSubtract)
+        val buttonMultiply = findViewById<Button>(R.id.buttonMultiply)
+        val buttonDivide = findViewById<Button>(R.id.buttonDivide)
+        val buttonBack = findViewById<Button>(R.id.buttonBack)
+
 
         //for button click events
         buttonAdd.setOnClickListener{
             val num1 = editTextNumber1.text.toString().toIntOrNull() ?: 0
             val num2 = editTextNumber1.text.toString().toIntOrNull() ?: 0
-            val sumResult = num1 + num2
-            textViewOutput.text = "Sum = $sumResult"
+            val Result = num1 + num2
+            textViewOutput.text = "Result = $Result"
+
+        }
+
+        buttonSubtract.setOnClickListener{
+            val num1 = editTextNumber1.text.toString().toIntOrNull() ?: 0
+            val num2 = editTextNumber1.text.toString().toIntOrNull() ?: 0
+            val Result = num1 - num2
+            textViewOutput.text = "Result = $Result"
+
+        }
+
+        buttonMultiply.setOnClickListener{
+            val num1 = editTextNumber1.text.toString().toIntOrNull() ?: 0
+            val num2 = editTextNumber1.text.toString().toIntOrNull() ?: 0
+            val Result = num1 * num2
+            textViewOutput.text = "Result = $Result"
+
+        }
+
+        buttonDivide.setOnClickListener{
+            val num1 = editTextNumber1.text.toString().toIntOrNull() ?: 0
+            val num2 = editTextNumber1.text.toString().toIntOrNull() ?: 0
+            val Result = num1 / num2
+            textViewOutput.text = "Result = $Result"
 
         }
 
@@ -40,6 +70,13 @@ class MainActivity : AppCompatActivity() {
             editTextNumber1.text.clear()
             editTextNumber2.text.clear()
             textViewOutput.text = ""
+
+        }
+
+        buttonBack.setOnClickListener{
+
+            val navigate = Intent(this, SplashActivity::class.java)
+            startActivity(navigate)
 
         }
 
